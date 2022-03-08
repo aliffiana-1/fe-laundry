@@ -20,20 +20,36 @@ export default class TransaksiList extends React.Component{
                 <div className="card col-sm-12 my-1">
                     <div className="card-body row">
                         <div className="col-lg-4 col-sm-12">
-                            <small className="text-info">ID Transaksi</small>
+                            <small className="text-info">Resi</small>
                             <h6>{this.props.customer_name}</h6>
                         </div>
                         <div className="col-lg-4 col-sm-12">
-                            <small className="text-info">Address</small>
+                            <small className="text-info">Nama</small>
                             <h6>{this.props.customer_address}</h6>
                         </div>
                         <div className="col-lg-2 col-sm-12">
-                            <small className="text-info">Total Amount</small>
+                            <small className="text-info">Tanggal</small>
+                            <h6 className="text-danger">Rp { this.getAmount(this.props.products) }</h6>
+                        </div>
+                        <div className="col-lg-4 col-sm-12">
+                            <small className="text-info">Batas Waktu</small>
+                            <h6>{this.props.customer_name}</h6>
+                        </div>
+                        <div className="col-lg-2 col-sm-12">
+                            <small className="text-info">Tanggal Bayar</small>
                             <h6 className="text-danger">Rp { this.getAmount(this.props.products) }</h6>
                         </div>
                         <div className="col-lg-2 col-sm-12">
                             <small className="text-bold text-info">
-                                Time: { this.convertTime(this.props.time) }
+                                Status: { this.convertTime(this.props.time) }
+                            </small>
+                            <button className="btn btn-sm btn-block btn-success" data-toggle="modal" data-target={`#modalDetail${this.props.transaction_id}`}>
+                                Details
+                            </button>
+                        </div>
+                        <div className="col-lg-2 col-sm-12">
+                            <small className="text-bold text-info">
+                                Pembayaran: { this.convertTime(this.props.time) }
                             </small>
                             <button className="btn btn-sm btn-block btn-success" data-toggle="modal" data-target={`#modalDetail${this.props.transaction_id}`}>
                                 Details

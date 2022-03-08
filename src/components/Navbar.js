@@ -19,13 +19,13 @@ export default class Navbar extends React.Component{
                 </a>
 
             {/* show and hide menu */}
-            <button className="navbar-toggler" data-toggle="collapse"
+            <button className="navbar-toggler " data-toggle="collapse "
             data-target="#menu">
                 <span className="navbar-toggler-icon"></span>
             </button>
 
             {/* menu */}
-            <div id="menu" className="navbar-collapse collapse">
+            <div id="menu" className="collapse navbar-collapse">
                 <ul className="navbar-nav mr-auto"> 
                     <li className="nav-item">
                         <Link to="/" className="nav-link">
@@ -33,30 +33,7 @@ export default class Navbar extends React.Component{
                         </Link>
                     </li>
 
-                    {/* <li className="nav-item">
-                        <Link to="/admin" className="nav-link">
-                            Admin
-                        </Link>
-                    </li>
-
-                    <li className="nav-item">
-                        <Link to="/owner" className="nav-link">
-                            Owner
-                        </Link>
-                    </li>
-
-                    <li className="nav-item">
-                        <Link to="/outlet" className="nav-link">
-                            Outlet
-                        </Link>
-                    </li>
-
-                    <li className="nav-item">
-                        <Link to="/paket" className="nav-link">
-                            Paket
-                        </Link>
-                    </li> */}
-
+                  
                     <li className="nav-item">
                         <Link to="/transaksi" className="nav-link">
                             Transaksi

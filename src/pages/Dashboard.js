@@ -8,7 +8,7 @@ export default class Dashboard extends React.Component{
         super()
         this.state = {
             // token: "",
-            adminName: null,
+            adminName: '',
             productsCount: 0,
             customersCount: 0,
             transactionsCount: 0,
@@ -33,8 +33,32 @@ export default class Dashboard extends React.Component{
         return(
             <div>
                 <Navbar />
-                <h1>Ini Admin Site</h1>
+                <div className="container mt-2">
+                    <h3 className="my-2">
+                        <strong>Welcome back, Alip {this.state.adminName}</strong>
+                    </h3>
+                    <div className="row">
+                        {/* products count */}
+                        <div className="col-lg-4 col-md-6 col-sm-12 mt-2">
+                            <div className="card">
+                                <div className="card-body bg-success">
+                                    <h4 className="text-dark">
+                                        <strong>Transactions Count</strong>
+                                    </h4>
+                                    <h1 className="text-white">
+                                        <strong>{this.state.productsCount}</strong>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+ 
+                        
+                    </div>
+                </div>
             </div>
         )
     }
+
+        
+    
 }
