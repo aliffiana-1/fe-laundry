@@ -1,8 +1,9 @@
 import React from "react"
-import Navbar from "../components/Navbar"
 import axios from "axios"
-import { base_url } from "../Config.js"
- 
+import { base_url } from "../../Config.js"
+import NavbarOwner from "../../components/NavbarOwner"
+import Navbar from "../../components/Navbar"
+
 export default class Dashboard extends React.Component{
     constructor(){
         super()
@@ -10,7 +11,8 @@ export default class Dashboard extends React.Component{
             // token: "",
             nama: '',
             petugas: [],
-            paket : [],
+            productsCount: 0,
+            customersCount: 0,
             dataTransaksi: 0,
             dataPaket: 0
         }
@@ -45,34 +47,34 @@ export default class Dashboard extends React.Component{
         })
     }
 
-    // getPaket = () => {
-    //     let url = base_url + "/transaksi"
-    //     axios.get(url)
-    //     .then(response=> {
-    //         this.setState({dataPaket: response.data.length})
-    //     })
-    //     .catch(error => {
-    //         if (error.response) {
-    //             if(error.response.status) {
-    //                 window.alert(error.response.data.message)
-    //                 // this.props.history.push("/login")
-    //             }
-    //         }else{
-    //             console.log(error);
-    //         }
-    //     })
-    // }
+    getPaket = () => {
+        let url = base_url + "/paket"
+        axios.get(url)
+        .then(response=> {
+            this.setState({dataPaket: response.data.length})
+        })
+        .catch(error => {
+            if (error.response) {
+                if(error.response.status) {
+                    window.alert(error.response.data.message)
+                    // this.props.history.push("/login")
+                }
+            }else{
+                console.log(error);
+            }
+        })
+    }
 
     componentDidMount() {
         this.getTransaksi()
-        // this.getPaket()
+        this.getPaket()
     }
 
     
     render(){
         return(
             <div>
-                <Navbar />
+                <NavbarOwner />
                 <div className="container mt-2">
                     <h3 className="my-2">
                         <strong>Welcome back</strong>

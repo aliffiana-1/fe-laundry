@@ -1,19 +1,19 @@
 import React from "react"
 import {Link} from "react-router-dom"
 
-export default class Navbar extends React.Component{
+export default class NavbarOwner extends React.Component{
     
     
     Logout = () => {
         localStorage.removeItem("token")
         localStorage.removeItem("admin")
-        window.location = "/loginAdmin"
+        window.location = "/loginOwner"
     }
 
     
     render(){
         return(
-            <div className="navbar navbar-expand-lg bg-dark navbar-dark">
+            <div className="navbar navbar-expand-lg bg-primary navbar-dark">
                 <a className="navbar-brand"> 
                 &nbsp; <b>Laundry.in</b>
                 </a>
@@ -28,20 +28,20 @@ export default class Navbar extends React.Component{
             <div id="menu" className="collapse navbar-collapse">
                 <ul className="navbar-nav mr-auto"> 
                     <li className="nav-item">
-                        <Link to="/" className="nav-link">
+                        <Link to="/OwnerDashboard" className="nav-link">
                            Dashboard 
                         </Link>
                     </li>
 
                     <li className="nav-item">
-                        <Link to="/paket" className="nav-link">
-                            Paket
+                        <Link to="/OwnerAdmin" className="nav-link">
+                            Petugas
                         </Link>
                     </li>
                   
                     <li className="nav-item">
-                        <Link to="/transaksi" className="nav-link">
-                            Transaksi
+                        <Link to="/OwnerOutlet" className="nav-link">
+                            Outlet
                         </Link>
                     </li>
 

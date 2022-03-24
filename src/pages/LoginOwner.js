@@ -1,10 +1,11 @@
 import React from "react"
+import Navbar from "../components/Navbar"
+import Swal from "sweetalert2"
 import axios from "axios"
-import { base_url } from "../Config.js";
-import Swal from 'sweetalert2'
-import NavbarLogged from "../components/NavbarLogged.js";
+import { base_url } from "../Config"
+import NavbarLogged from "../components/NavbarLogged"
  
-export default class Login extends React.Component{
+export default class LoginOwner extends React.Component{
     constructor(){
         super()
         this.state = {
@@ -22,19 +23,18 @@ export default class Login extends React.Component{
             username: this.state.username,
             password: this.state.password
         }
-        // console.log(sendData)
+ 
         let url = base_url + "/petugas/login"
         
  
         axios.post(url, sendData)
         .then(response => {
-            // console.log(response.data.logged)
             this.setState({logged: response.data.logged})
             if (this.state.logged) {
-                let petugas = response.data.data
+                let owner = response.data.data
                 let token = response.data.token
-                let role = petugas.role
-                localStorage.setItem("petugas", JSON.stringify(petugas))
+                let role = owner.role
+                localStorage.setItem("owner", JSON.stringify(owner))
                 localStorage.setItem("token", token)
                 localStorage.setItem("role", role)
                 
@@ -56,7 +56,7 @@ export default class Login extends React.Component{
                     title: 'Signed in successfully'
                   })
 
-                  this.props.history.push("/")
+                  this.props.history.push("/OwnerDashboard")
                   
                   
             } else {
@@ -70,8 +70,6 @@ export default class Login extends React.Component{
         .catch(error => console.log(error))
     }
 
-
-
     render(){
         return(
             <div>
@@ -80,7 +78,7 @@ export default class Login extends React.Component{
                     <div className="col-sm-5 card my-5">
                         <div className="card-header bg-primary text-white text-center">
                             <h4>Laundry.in</h4>
-                            <strong className="text-warning">Petugas Sign In</strong>
+                            <strong className="text-warning">Owner Sign In</strong>
                         </div>
                         <div className="card-body">
                             
@@ -101,7 +99,6 @@ export default class Login extends React.Component{
                     </div>
                 </div>
             </div>
-            
         )
     }
 }
